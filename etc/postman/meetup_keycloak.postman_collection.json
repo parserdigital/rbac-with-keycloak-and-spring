@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "2fc51789-3c14-4c10-9d64-e7139deb7b73",
+		"_postman_id": "37dc6535-8c93-4b82-a3a4-e60db1e2b80d",
 		"name": "Chapter Backend - Keycloak",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "17472185"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -37,21 +36,12 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{iam_service_basepath}}/iam-service/accounts",
-							"host": [
-								"{{iam_service_basepath}}"
-							],
-							"path": [
-								"iam-service",
-								"accounts"
-							]
-						}
+						"url": "{{iam_service_basepath}}/iam-service/accounts"
 					},
 					"response": []
 				},
 				{
-					"name": "Activate account",
+					"name": "Activate Account",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -81,17 +71,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}",
-							"host": [
-								"{{iam_service_basepath}}"
-							],
-							"path": [
-								"iam-service",
-								"accounts",
-								"{{user_id}}"
-							]
-						}
+						"url": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}"
 					},
 					"response": []
 				},
@@ -100,17 +80,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}",
-							"host": [
-								"{{iam_service_basepath}}"
-							],
-							"path": [
-								"iam-service",
-								"accounts",
-								"{{user_id}}"
-							]
-						}
+						"url": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}"
 					},
 					"response": []
 				},
@@ -128,18 +98,39 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}/password",
-							"host": [
-								"{{iam_service_basepath}}"
-							],
-							"path": [
-								"iam-service",
-								"accounts",
-								"{{user_id}}",
-								"password"
-							]
-						}
+						"url": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}/password"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "keycloak-demo",
+			"item": [
+				{
+					"name": "Home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{keycloak_demo_basepath}}/developer/home"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Console",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{keycloak_demo_basepath}}/developer/admin-console"
+					},
+					"response": []
+				},
+				{
+					"name": "Developer Environment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{keycloak_demo_basepath}}/developer/developer-environment"
 					},
 					"response": []
 				}
@@ -180,21 +171,35 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "{{keycloak_basepath}}/realms/chapter_backend/protocol/openid-connect/token",
-					"host": [
-						"{{keycloak_basepath}}"
-					],
-					"path": [
-						"realms",
-						"chapter_backend",
-						"protocol",
-						"openid-connect",
-						"token"
-					]
-				}
+				"url": "{{keycloak_basepath}}/realms/chapter_backend/protocol/openid-connect/token"
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": ""
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
