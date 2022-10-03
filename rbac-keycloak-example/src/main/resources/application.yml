@@ -1,6 +1,6 @@
 spring:
   application:
-    name: keycloak-demo
+    name: rbac-keycloak-example
 
 server:
   port: 9081
@@ -13,6 +13,5 @@ keycloak:
   resource: keycloak-demo
   credentials:
     secret: wFpJ0WRq7Bk9VPgZRnZeqC46qdEZvMuB
-  # jkafhjkfhjkshf
   principal-attribute: preferred_username
 

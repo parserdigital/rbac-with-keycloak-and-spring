@@ -1,4 +1,4 @@
-package io.github.fermarcgom.keycloakdemo.controller;
+package com.parserdigital.fernando.marchuet.rbackeycloak.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
