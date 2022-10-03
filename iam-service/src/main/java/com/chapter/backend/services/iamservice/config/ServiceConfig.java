@@ -28,7 +28,7 @@ public class ServiceConfig {
                 .apiInfo(new ApiInfoBuilder()
                         .title("IAM Service API")
                         .description("IAM Service API description")
-                        .contact(new Contact("Parser Digital", "https://parserdigital.com", "ivan.perez@parserdigital.com"))
+                        .contact(new Contact("Parser Digital", "https://parserdigital.com", "contact@yourcompany.com"))
                         .build())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))
