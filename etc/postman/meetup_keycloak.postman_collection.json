@@ -29,7 +29,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"ivan.perez@parserdigital.com\",\n    \"name\": \"Iván\",\n    \"lastName\": \"Pérez\",\n    \"password\": \"test\"\n}",
+							"raw": "{\n    \"email\": \"youremail@yourcompany.com\",\n    \"name\": \"Iván\",\n    \"lastName\": \"Pérez\",\n    \"password\": \"test\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -161,7 +161,7 @@
 						},
 						{
 							"key": "username",
-							"value": "ivan.perez@parserdigital.com",
+							"value": "youremail@yourcompany.com",
 							"type": "text"
 						},
 						{
