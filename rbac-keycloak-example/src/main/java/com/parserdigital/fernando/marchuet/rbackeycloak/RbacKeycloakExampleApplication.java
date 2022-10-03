@@ -1,4 +1,4 @@
-package io.github.fermarcgom.keycloakdemo;
+package com.parserdigital.fernando.marchuet.rbackeycloak;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class KeycloakDemoApplication {
+public class RbacKeycloakExampleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KeycloakDemoApplication.class, args);
+		SpringApplication.run(RbacKeycloakExampleApplication.class, args);
 	}
 
 }

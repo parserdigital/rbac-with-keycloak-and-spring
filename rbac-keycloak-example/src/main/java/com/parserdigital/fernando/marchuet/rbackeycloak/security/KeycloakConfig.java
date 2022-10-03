@@ -1,4 +1,4 @@
-package io.github.fermarcgom.keycloakdemo.security;
+package com.parserdigital.fernando.marchuet.rbackeycloak.security;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
