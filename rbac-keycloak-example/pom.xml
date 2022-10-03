@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.parserdigital.fernando.marchuet</groupId>
-	<artifactId>keycloakdemo</artifactId>
+	<artifactId>rbac-keycloak-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rbac-keycloak-example</name>
 	<description>RBAC with Keycloak example project</description>
