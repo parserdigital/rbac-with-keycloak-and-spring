@@ -27,7 +27,6 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
         super.configure(http);
         http.authorizeRequests()
                 .antMatchers("/contact-us", "/logout").permitAll()
-                .anyRequest().authenticated()
                 .and().exceptionHandling().accessDeniedPage("/access-denied");
     }
 }
