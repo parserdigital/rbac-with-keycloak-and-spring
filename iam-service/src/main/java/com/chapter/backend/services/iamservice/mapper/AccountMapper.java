@@ -22,7 +22,8 @@ public interface AccountMapper {
 
     @Mappings({
             @Mapping(source = "firstName", target = "name"),
-            @Mapping(source = "accountId", target = "id")
+            @Mapping(source = "accountId", target = "id"),
+            @Mapping(target = "password", ignore = true)
     })
     AccountResponse toAccountResponse(AccountDto accountDto);
 

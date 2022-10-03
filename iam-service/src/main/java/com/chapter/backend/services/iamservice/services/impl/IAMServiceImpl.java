@@ -45,28 +45,29 @@ public class IAMServiceImpl implements IAMService {
         keycloakAccount.setCredentials(Collections.singletonList(createSecureCredentials(accountDto.getPassword())));
 
         // Create the user in Keycloak
-        Response response = keycloakClient.users().create(keycloakAccount);
+        try (Response response = keycloakClient.users().create(keycloakAccount)) {
 
-        if (201 != response.getStatus()) {
-            log.error("Error creating the account");
-            throw new ServiceException(BAD_REQUEST, "Account not created");
+            if (201 != response.getStatus()) {
+                log.error("Error creating the account");
+                throw new ServiceException(BAD_REQUEST, "Account not created");
+            }
+
+            // Extract the account id from the keycloak response
+            String accountId = response.getLocation().getPath().replaceAll(".*/([^/]+)$", "$1");
+
+            // Generate a new activation token for that account
+            String activationToken = UUID.randomUUID().toString();
+
+            accountDto.setActivationToken(activationToken);
+            accountDto.setAccountId(accountId);
+
+            ActivationTokenEntity activationTokenEntity = new ActivationTokenEntity();
+            activationTokenEntity.setToken(activationToken);
+            activationTokenEntity.setAccountId(accountDto.getAccountId());
+            activationTokenRepository.save(activationTokenEntity);
+
+            return accountDto;
         }
-
-        // Extract the account id from the keycloak response
-        String accountId = response.getLocation().getPath().replaceAll(".*/([^/]+)$", "$1");
-
-        // Generate a new activation token for that account
-        String activationToken = UUID.randomUUID().toString();
-
-        accountDto.setActivationToken(activationToken);
-        accountDto.setAccountId(accountId);
-
-        ActivationTokenEntity activationTokenEntity = new ActivationTokenEntity();
-        activationTokenEntity.setToken(activationToken);
-        activationTokenEntity.setAccountId(accountDto.getAccountId());
-        activationTokenRepository.save(activationTokenEntity);
-
-        return accountDto;
     }
 
     @Override
