@@ -16,4 +16,8 @@ For more information about this service, please visit this [section](iam-service
 
 ## Keycloak example
 
+This application has been created to show how to integrate with keycloak for authentication (keycloak can provide a login 
+page or an endpoint to get a JWT token) and authorization (using keycloak users).  
+The application provides 4 web pages that can be only accessed with specific authorities.
+
 For more information about this service, please visit this [section](rbac-keycloak-example/README.md) 
