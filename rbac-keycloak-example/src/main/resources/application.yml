@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: rbac-keycloak-example
+
+server:
+  port: 9081
+  servlet:
+    context-path: /developer
+
+keycloak:
+  auth-server-url: http://localhost:8080
+  realm: chapter_backend
+  resource: keycloak-demo
+  credentials:
+    secret: wFpJ0WRq7Bk9VPgZRnZeqC46qdEZvMuB
+  principal-attribute: preferred_username
+

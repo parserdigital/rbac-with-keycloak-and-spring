@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "37dc6535-8c93-4b82-a3a4-e60db1e2b80d",
+		"name": "Chapter Backend - Keycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "iam-service",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"get consent access token returns 200\", () => {",
+									"    pm.response.to.have.status(201);",
+									"    pm.environment.set(\"user_id\", pm.response.json().id)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"youremail@yourcompany.com\",\n    \"name\": \"Iván\",\n    \"lastName\": \"Pérez\",\n    \"password\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{iam_service_basepath}}/iam-service/accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Activate Account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}/activate?token=7e78c39c-1fbd-4691-9f4a-a2c3ee73f076",
+							"host": [
+								"{{iam_service_basepath}}"
+							],
+							"path": [
+								"iam-service",
+								"accounts",
+								"{{user_id}}",
+								"activate"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "7e78c39c-1fbd-4691-9f4a-a2c3ee73f076"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Account Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"newPassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{iam_service_basepath}}/iam-service/accounts/{{user_id}}/password"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "keycloak-demo",
+			"item": [
+				{
+					"name": "Home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{keycloak_demo_basepath}}/developer/home"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Console",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{keycloak_demo_basepath}}/developer/admin-console"
+					},
+					"response": []
+				},
+				{
+					"name": "Developer Environment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{keycloak_demo_basepath}}/developer/developer-environment"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "iam-service",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "38NIDDAC0JyhxShpl740E3leyYzAKG4U",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "youremail@yourcompany.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "newPassword",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{keycloak_basepath}}/realms/chapter_backend/protocol/openid-connect/token"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": ""
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
